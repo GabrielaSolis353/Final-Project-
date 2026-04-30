@@ -1,3 +1,15 @@
 // main.js
+// Add intersection observer for section transitions
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        }
+    });
+},
+  { threshold: 0.5}
+);
 
-console.log("Hello, World!");
+sections.forEach(section => observer.observe(section));
